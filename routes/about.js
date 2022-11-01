@@ -8,7 +8,7 @@ router.use((req, res, next) => {
 
 // define the home page route
 router.get('/', (req, res) => {
-  res.send('ABOUT PAGE')
+  res.send('<h1>ABOUT PAGE</h1> <a href=/about/me <h2>ME</h2>')
 })
 
 router.get('/me', (req, res) => {

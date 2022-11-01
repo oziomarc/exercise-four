@@ -2,10 +2,14 @@ const express = require('express')
 const app = express()
 const port = 4000
 
-app.get('/', (req, res) => { //second argument is callback function containing 2 args: reqest and response
-    res.send("Hello World!")
-}) 
+const homePage = require('./routes/index.js')
+const aboutPage = require('./routes/about.js')
 
-app.listen(port, () => {
+app.use('/', homePage)
+app.use('/about', aboutPage)
+
+app.use('/images', express.static('public'))
+
+app.listen(port, () => (
     console.log(`Example app listening on port ${port}`)
-})
+))
